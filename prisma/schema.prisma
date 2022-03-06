@@ -1,0 +1,17 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:ds-bot.db"
+}
+
+generator client {
+  provider        = "prisma-client-js"
+}
+
+model Channel {
+    id Int @id @default(autoincrement())
+    snowflake String? @unique
+    recieverId Int?
+    language String?
+    reciever Channel? @relation("RecieverListeners", fields: [recieverId], references: [id])
+    listeners Channel[] @relation("RecieverListeners")
+}
