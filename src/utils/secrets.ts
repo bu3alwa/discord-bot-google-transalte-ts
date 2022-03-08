@@ -1,6 +1,10 @@
-export const discordToken: string = process.env['DISCORD_TOKEN'] ?? ''
-export const clientId: string = process.env['CLIENT_ID'] ?? ''
-export const guildId: string = process.env['GUILD_ID'] ?? ''
+import * as dotenv from 'dotenv'
+
+dotenv.config()
+
+export const discordToken: string = process.env.DISCORD_TOKEN ?? ''
+export const clientId: string = process.env.CLIENT_ID ?? ''
+export const guildId: string = process.env.GUILD_ID ?? ''
 
 if (discordToken === ''){
     console.log('Missing env: DISCORD_TOKEN')

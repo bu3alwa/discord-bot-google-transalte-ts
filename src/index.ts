@@ -1,25 +1,15 @@
 import { Client, Intents } from 'discord.js'
-import * as dotenv from 'dotenv'
-
-const commands = [{
-    name: 'ping',
-    description: 'pong'
-}]
-
-dotenv.config()
+import onReady from './events/onReady'
+import onInteraction from './events/onInteraction'
+import registerCommands from './commands'
 
 const client = new Client({intents: [Intents.FLAGS.GUILDS]})
 
+registerCommands()
+client.on('ready', onReady)
 
-client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}`)
-})
-
-client.on('message', msg => {
-    if (msg.content === "ping")
-    {
-        msg.reply('pong')
-    }
-})
+client.on(
+    'interactionCreate',
+    async (interaction) => await onInteraction(interaction))
 
 client.login()
