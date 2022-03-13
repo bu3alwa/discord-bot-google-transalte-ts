@@ -2,7 +2,7 @@ import type { Client } from 'discord.js'
 
 import { Commands } from '../commands'
 
-const onReady = (client: Client): void => {
+const ready = (client: Client): void => {
   client.on('ready', async () => {
     if (!client.user || !client.application) return
     await client.application.commands.set(Commands)
@@ -10,4 +10,4 @@ const onReady = (client: Client): void => {
   })
 }
 
-export default onReady
+export default ready
