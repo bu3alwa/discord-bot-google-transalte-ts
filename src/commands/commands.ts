@@ -1,6 +1,15 @@
-import { SlashCommandBuilder } from "@discordjs/builders"
+interface Command {
+  command: string
+  description: string
+}
 
-export const commands = [
-	new SlashCommandBuilder().setName('ping').setDescription('Replies with pong!'),
-    new SlashCommandBuilder().setName('tr').setDescription('sets translation settings for channel')
+export const commands: Command[] = [
+  {
+    command: 'ping',
+    description: 'Replies with pong!',
+  },
+  {
+    command: 'tr',
+    description: 'sets translation settings for channel',
+  },
 ]
