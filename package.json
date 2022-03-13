@@ -7,6 +7,14 @@
     "start": "ts-node src/index.ts",
     "lint": "eslint --cache \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint --cache --fix \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint-staged": {
+      "*.ts": "eslint --fix"
+    },
+    "husky": {
+      "hooks": {
+        "pre-comit": "lint-staged"
+      }
+    }
     "prepare": "husky install"
   },
   "keywords": [],
