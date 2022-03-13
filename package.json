@@ -7,15 +7,10 @@
     "start": "ts-node src/index.ts",
     "lint": "eslint --cache \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint --cache --fix \"src/**/*.{js,jsx,ts,tsx}\"",
-    "lint-staged": {
-      "*.ts": "eslint --fix"
-    },
-    "husky": {
-      "hooks": {
-        "pre-comit": "lint-staged"
-      }
-    }
     "prepare": "husky install"
+  },
+  "husky": {
+    "pre-comit": "lint-staged"
   },
   "keywords": [],
   "author": "",
@@ -48,6 +43,6 @@
     "ts-node": "^10.5.0"
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix"
+    "*.ts": "npm run lint:fix"
   }
 }
