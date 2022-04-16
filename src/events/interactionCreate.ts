@@ -13,7 +13,7 @@ const interactionCreate = (client: Client): void => {
 const handleSlashCommand = async (client: Client, interaction: BaseCommandInteraction): Promise<void> => {
   const slashCommand = Commands.find((c) => c.name === interaction.commandName)
   if (!slashCommand) {
-    interaction.followUp({ content: 'Command not found' })
+    interaction.followUp({ content: 'Command sent may be incorrect' })
     return
   }
 

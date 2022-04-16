@@ -10,8 +10,7 @@ generator client {
 model Channel {
     id Int @id @default(autoincrement())
     snowflake String? @unique
-    recieverId Int?
     language String?
-    reciever Channel? @relation("RecieverListeners", fields: [recieverId], references: [id])
-    listeners Channel[] @relation("RecieverListeners")
+    listeners Channel[] @relation("listeners")
+    listenersRelation Channel[] @relation("listeners")
 }
